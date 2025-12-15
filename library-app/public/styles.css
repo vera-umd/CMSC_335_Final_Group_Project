@@ -14,12 +14,18 @@ body {
 
 }
 
-h1{ 
+h1 { 
     color: #ffffff;
     font-family: 'Domine', serif;
 
     font-weight: 600;
-    padding-left: 1.15em;
+    padding-left: .5em;
+}
+
+h5 {
+
+    padding-left: .5em;
+
 }
 
 a:link {
