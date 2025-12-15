@@ -86,10 +86,12 @@ router.post('/borrow/:id', async (req, res) => {
 });
 // return books
 router.get('/return', (req, res) => {
-    res.render('return');
+    res.render('return_search');
   });
   
 router.post('/return', async (req, res) => {
+    
+
     const { email } = req.body;
   
     const books = await Book.find({
@@ -98,6 +100,7 @@ router.post('/return', async (req, res) => {
   
     res.render('return_results', { books, email });
 });
+
 router.post('/return/:id', async (req, res) => {
     const { email } = req.body;
     const book = await Book.findById(req.params.id);
