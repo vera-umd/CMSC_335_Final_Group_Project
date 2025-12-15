@@ -1,4 +1,4 @@
-@import url('');
+
 
 html{
     min-height: 100vh;
@@ -44,4 +44,9 @@ a:link {
     color: red;
     background-color: transparent;
     text-decoration: underline;
+  }
+
+  .book img {
+    width: 80px;
+    margin-bottom: 10px;
   }

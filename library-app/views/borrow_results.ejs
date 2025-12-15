@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Results</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
 <h2>Search Results for "<%= query %>"</h2>
 
 <% if (books.length === 0) { %>
@@ -7,10 +14,13 @@
     <div class="book">
       <h3><%= book.title %></h3>
       <p>Authors: <%= (book.authors && book.authors.length > 0) ? book.authors.join(', ') : 'Unknown' %></p>
+      <% if (book.thumbnail) { %>
+        <img src="<%= book.thumbnail %>" alt="Book cover">
+      <% } %>
       <p>Available: <%= book.availableCopies %> / <%= book.totalCopies %></p>
 
       <% if (book.availableCopies > 0) { %>
-        // gonna add more details and stuff later 
+        
         <form method="POST" action="/books/borrow/<%= book._id %>">
           <label for="name">Your Name:</label>
           <input type="text" name="name" required>
@@ -32,3 +42,5 @@
 
 <a href="/books/borrow">Back to Search</a>
 <a href="/"> Home</a>
+</body>
+</html>
