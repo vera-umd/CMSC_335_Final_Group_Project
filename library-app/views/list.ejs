@@ -7,6 +7,21 @@
 <body>
 <h2>Library Books</h2>
 
+<form method="get" action="/books/list">
+  <label>Sort by:
+    <select name="sort">
+      <option value="">None</option>
+      <option value="title" <%= sort === 'title' ? 'selected' : '' %>>Title</option>
+      <option value="author" <%= sort === 'author' ? 'selected' : '' %>>Author</option>
+    </select>
+  </label> <br>
+  <label>
+    Available only: 
+    <input type="checkbox" name="availableOnly" value="true" <%= availableOnly === 'true' ? 'checked' : '' %> />
+  </label> <br>
+  <button type="submit">Filter</button>
+</form>
+
 <% books.forEach(book => { %>
   <div class="book">
     <h3><%= book.title %></h3>

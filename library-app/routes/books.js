@@ -45,10 +45,23 @@ router.post('/add', async (req, res) => {
 
 //library list
 router.get('/list', async(req, res) =>{
-    const books = await Book.find();
-    console.log(books);
-    res.render('list', {books});
+    const { sort, availableOnly } = req.query;
+    const query = {};
 
+    if(availableOnly === 'true') {
+      query.availableCopies = { $gt: 0 };
+    }
+
+    const sortOptions = {};
+    if(sort === 'title') {
+      sortOptions.title = 1;
+    } else if(sort === 'author') {
+      sortOptions['authors.0'] = 1;
+      sortOptions.title = 1;
+    }
+
+    const books = await Book.find(query).sort(sortOptions);
+    res.render('list', { books, sort, availableOnly });
 });
 
 router.get('/borrow', (req, res) => {
