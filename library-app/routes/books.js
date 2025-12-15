@@ -97,6 +97,45 @@ router.post('/borrow/:id', async (req, res) => {
     res.send('No copies available');
   }
 });
+// return books
+router.get('/return', (req, res) => {
+    res.render('return_search');
+  });
+  
+router.post('/return', async (req, res) => {
+    
+
+    const { email } = req.body;
+  
+    const books = await Book.find({
+      'borrowRecords.email': email
+    });
+  
+    res.render('return_results', { books, email });
+});
+
+router.post('/return/:id', async (req, res) => {
+    const { email } = req.body;
+    const book = await Book.findById(req.params.id);
+  
+    if (!book) return res.send('Book not found');
+  
+    const before = book.borrowRecords.length;
+  
+    book.borrowRecords = book.borrowRecords.filter(
+      record => record.email !== email
+    );
+  
+    if (book.borrowRecords.length < before) {
+      if (book.availableCopies < book.totalCopies) {
+        book.availableCopies++;
+      }
+    }
+  
+    await book.save();
+    res.redirect('/books/return');
+  });
+  
 
 
 
