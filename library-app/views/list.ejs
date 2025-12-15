@@ -1,0 +1,11 @@
+<h2>Library Books</h2>
+
+<% books.forEach(book => { %>
+  <div class="book">
+    <h3><%= book.title %></h3>
+    <p>Authors: <%= (book.authors && book.authors.length > 0) ? book.authors.join(', ') : 'Unknown' %></p>
+    <p>Available: <%= book.availableCopies %> / <%= book.totalCopies %></p>
+  </div>
+  <hr>
+<% }) %>
+<a href="/"> Home</a>
