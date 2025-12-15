@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Results/title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h2>Books Borrowed by <%= email %></h2>
+
+<% if (books.length === 0) { %>
+  <p>No borrowed books found.</p>
+<% } else { %>
+  <% books.forEach(book => { %>
+    <div class="book">
+      <h3><%= book.title %></h3>
+      <p>Available: <%= book.availableCopies %> / <%= book.totalCopies %></p>
+
+      <form method="POST" action="/books/return/<%= book._id %>">
+        <input type="hidden" name="email" value="<%= email %>">
+        <button>Return This Book</button>
+      </form>
+    </div>
+    <hr>
+  <% }) %>
+<% } %>
+
+<a href="/books/return">Back</a> |
+<a href="/">Home</a>
+</body>
+</html>
