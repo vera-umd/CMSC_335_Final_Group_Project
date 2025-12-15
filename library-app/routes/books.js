@@ -51,9 +51,6 @@ router.get('/list', async(req, res) =>{
 
 });
 
-
-
-
 router.get('/borrow', (req, res) => {
   res.render('borrow_search');
 });
