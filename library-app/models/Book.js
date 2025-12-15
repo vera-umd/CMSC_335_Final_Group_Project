@@ -11,7 +11,7 @@ const bookSchema = new mongoose.Schema({
             Name : String,
             email: String,
             returnDate : Date,
-            lentDate: { type: Date, default:Date.now}
+            borrowDate: { type: Date, default:Date.now}
 
         }
     ]

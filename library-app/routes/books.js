@@ -59,19 +59,25 @@ router.get('/borrow', (req, res) => {
 router.post('/borrow', async (req, res) => {
   const { query } = req.body;
   const regex = new RegExp(query, 'i'); 
-  const books = await Book.find({ title: regex });
+
+  const books = await Book.find({ 
+    $or:[
+        {title: regex },
+    {authors: regex}
+    ]
+});
   res.render('borrow_results', { books, query });
 });
 
 
 router.post('/borrow/:id', async (req, res) => {
-  const { name, date } = req.body;
+  const { name, email, borrowDate, dueDate } = req.body;
   const book = await Book.findById(req.params.id);
   if (!book) return res.send('Book not found');
 
   if (book.availableCopies > 0) {
     book.availableCopies--;
-    book.borrowRecords.push({ name, date });
+    book.borrowRecords.push({ name, email, borrowDate , dueDate});
     await book.save();
     res.redirect('/books/borrow'); 
   } else {

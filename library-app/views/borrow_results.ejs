@@ -14,8 +14,12 @@
         <form method="POST" action="/books/borrow/<%= book._id %>">
           <label for="name">Your Name:</label>
           <input type="text" name="name" required>
-          <label for="date">Borrow Date:</label>
+          <label for = "email" >Email </label>
+          <input type="email" name="email" required >
+          <label for="borrowDate">Borrow Date:</label>
           <input type="date" name="date" required>
+          <label for = "duedate">Due Date:</label>
+            <input type="date" name="dueDate" required>
           <button>Borrow</button>
         </form>
       <% } else { %>
