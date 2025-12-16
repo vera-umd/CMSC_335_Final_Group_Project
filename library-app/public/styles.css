@@ -51,3 +51,31 @@ a:link {
     width: 80px;
     margin-bottom: 10px;
   }
+
+  #navUL {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkred;
+  }
+
+  #navLI {
+    float: left;
+    list-style-type: none;
+  }
+
+  #navLI a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 16px;
+    border: darkred;
+    border-style: solid;
+  }
+
+  #navLI a:hover {
+    background-color: goldenrod;
+    border: orange;
+    border-style: inset;
+    color: darkred;
+  }

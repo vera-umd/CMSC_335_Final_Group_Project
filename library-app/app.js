@@ -27,5 +27,5 @@ app.get('/', (req, res)=>{
 });
 
 // port
-app.listen(PORTNUMBER, () => console.log('Server running on port ${PORTNUMBER}'));
-console.log("https://localhost:${PORTNUMBER} or http://localhost:3000")
+app.listen(PORTNUMBER, () => console.log(`Server running on port ${PORTNUMBER}`));
+console.log(`https://localhost:${PORTNUMBER} or http://localhost:3000`);

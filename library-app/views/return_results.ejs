@@ -5,6 +5,13 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+<ul id="navUL">
+  <li id="navLI"><a href="/">Home</a></li>
+  <li id="navLI"><a href="/books/search">Search</a></li>
+  <li id="navLI"><a href="/books/list">My List</a></li>
+  <li id="navLI"><a href="/books/borrow">Borrow</a></li>
+  <li id="navLI"><a href="/books/return">Return</a></li>
+</ul>
 <h2>Books Borrowed by <%= email %></h2>
 
 <% if (books.length === 0) { %>
@@ -25,6 +32,6 @@
 <% } %>
 
 <a href="/books/return">Back</a> |
-<a href="/">Home</a>
+<!-- <a href="/">Home</a> -->
 </body>
 </html>
