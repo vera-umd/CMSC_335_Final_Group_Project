@@ -42,7 +42,7 @@ a:link {
   }
   
   a:hover {
-    color: red;
+    color: goldenrod;
     background-color: transparent;
     text-decoration: underline;
   }
