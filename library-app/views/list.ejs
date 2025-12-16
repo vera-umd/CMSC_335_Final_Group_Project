@@ -8,7 +8,7 @@
 <ul id="navUL">
   <li id="navLI"><a href="/">Home</a></li>
   <li id="navLI"><a href="/books/search">Search</a></li>
-  <li id="navLI"><a href="/books/list">My List</a></li>
+  <li id="navLI"><a href="/books/list">Library Database</a></li>
   <li id="navLI"><a href="/books/borrow">Borrow</a></li>
   <li id="navLI"><a href="/books/return">Return</a></li>
 </ul>
@@ -40,6 +40,9 @@
   </div>
   <hr>
 <% }) %>
-<a href="/"> Home</a>
+<form method="POST" action="/books/clear">
+  <button type="submit">Clear Out Library</button>
+</form>
+<!-- <a href="/"> Home</a> -->
 </body>
 </html>

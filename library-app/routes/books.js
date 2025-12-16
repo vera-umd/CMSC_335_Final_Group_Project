@@ -41,7 +41,15 @@ router.post('/add', async (req, res) => {
       
         res.redirect('/books/list');
 });
-      
+
+router.post('/clear', async (req, res) => {
+  try {
+    await Book.deleteMany({});
+    res.redirect('/books/list');
+  } catch (e) {
+    console.log("Error clearingg");
+  }
+});
 
 //library list
 router.get('/list', async(req, res) =>{
